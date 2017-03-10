@@ -1,0 +1,17 @@
+#module9
+
+setwd("C:/Users/jcricha3/Desktop")
+mydata <- read.csv(file = "biomassrclass.csv", header = TRUE)
+
+attach(mydata)
+
+plot(year, Tas, 
+lty  = c(1,2),lws=c(2,2), xlab = "years",ylab = "Tas", 
+main = "Tas by year")
+
+library(lattice)
+xyplot(Tas ~ year, data = mydata, pch =19)
+
+library(ggplot2)
+ggplot(mydata, aes(x=year, y=Tas)) +
+  geom_point(shape=1)
